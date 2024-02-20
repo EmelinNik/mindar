@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+</head>
+<body>
+    <a-scene mindar-image="imageTargetSrc: ./path/to/your/targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <!-- Предполагается, что mov_bbb.jpeg - это изображение, которое вы хотите показать -->
+            <img id="mov-bbb-image" src="mov_bbb.jpeg">
+        </a-assets>
+        
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+        
+        <a-entity mindar-image-target="targetIndex: 0">
+            <!-- Используйте mov_bbb.jpeg как текстуру для плоскости, которая будет отображаться при распознавании nikita.jpeg -->
+            <a-plane src="#mov-bbb-image" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
+        </a-entity>
+    </a-scene>
+</body>
+</html>
